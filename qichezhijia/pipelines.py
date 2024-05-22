@@ -12,6 +12,7 @@ import json
 import openpyxl
 from openpyxl.utils import get_column_letter
 import os
+import datetime  
 
 
 
@@ -54,11 +55,15 @@ class QichezhijiaPipeline:
                 adjusted_width = 25
             self.ws.column_dimensions[get_column_letter(column)].width = adjusted_width
 
-        # 保存Workbook
-        self.wb.save("车型数据.xlsx")
+      
+        now = datetime.datetime.now()  
+        timestamp = now.strftime('%Y-%m-%d_%H-%M-%S')  
+        filename = "车型数据_" + timestamp + ".xlsx"      
+        # 保存 Workbook  
+        self.wb.save(filename)
         # 如果在Unix或Linux系统上，设置文件权限为775
         if os.name == 'posix':  # 检查是否是Unix或Linux系统
-            os.chmod("车型数据.xlsx", 0o775)  # 使用八进制数字设置权限
+            os.chmod(filename, 0o775)  # 使用八进制数字设置权限
 
 
 
