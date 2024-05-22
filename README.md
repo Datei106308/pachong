@@ -6,8 +6,8 @@ seriesid参数为汽车之家car参数配置
 
 
 
-引用包为:import scrapy
-import json
-import jsonpath
-import datetimeimport os
-import openpyxl
+引用包为:import scrapy、
+import json、
+import jsonpath、
+import datetimeimport os、
+import openpyxl、
